@@ -1,16 +1,16 @@
-name: Build & Deploy to Firebase Hosting
+name: Build & Deploy to Firebase Hosting on Push
 
 on:
   push:
     branches:
-      - main    # ← deploys whenever you push or merge into main
+      - main
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -27,9 +27,6 @@ jobs:
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          # Default GitHub token for triggering PR previews (if you use them)
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          # 🔑 This must match the secret the CLI created:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LIBPROJECT_D71AF }}
-          # 'live' means your production channel (your‐id.web.app)
           channelId: live
