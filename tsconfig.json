@@ -2,6 +2,7 @@
   // Base TypeScript configuration for libproject
   "compilerOptions": {
     /* Language and Environment */
+    "noEmit": true,
     "target": "es2016",                         // Emit modern JS
     "module": "commonjs",                       // CommonJS modules for Node
 
@@ -18,7 +19,8 @@
     /* Safety & Strictness */
     "forceConsistentCasingInFileNames": true,   // Prevent casing mismatches
     "strict": true,                             // All strict checks on
-    "skipLibCheck": true                        // Skip d.ts type-checking
+    "skipLibCheck": true
+                            // Skip d.ts type-checking
   },
 
   // Which files to include in the project
