@@ -1,15 +1,14 @@
 // src/frontend/index.tsx
-import React from 'react'
-import { createRoot } from 'react-dom/client'
-import UserAuth from './components/UserAuth'  // must match the default export
+import React from 'react';
+import { createRoot }    from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App               from './App';
 
-function App() {
-  return (
-    <div style={{ padding: 20 }}>
-      <UserAuth />
-    </div>
-  )
+const container = document.getElementById('root');
+if (container) {
+  createRoot(container).render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
 }
-
-const container = document.getElementById('root')
-if (container) createRoot(container).render(<App />)
